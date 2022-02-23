@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Управлять читателями</title>
+</head>
+<body>
+<form th:method="GET" th:action="@{/person/newPerson}">
+    <input type="submit" value="Пополнить список">
+</form>
+
+<form th:method="Get" th:action="@{/}">
+    <input type="submit" value="В главное меню">
+</form>
+<hr/>
+<table border="1">
+    <td>
+        <form th:method="GET" th:action="@{/person/freePersons}">
+            <input type="submit" value="Показать не читающих">
+        </form>
+    </td>
+    <td>
+        <form th:method="GET" th:action="@{/person/top}">
+            <input type="submit" value="ТОП-10">
+        </form>
+    </td>
+    <td>
+        <form th:method="GET" th:action="@{/person}">
+            <input type="submit" value="Показать всех">
+        </form>
+    </td>
+</table>
+<br/>
+<table border="1">
+    <tr>
+        <td>Имя</td>
+        <td>Возраст</td>
+        <td>Список взятых книг</td>
+    </tr>
+    <div th:each="person : ${persons}">
+        <tr>
+            <td th:text="${person.getName()}">Имя</td>
+            <td th:text="${person.getAge()}">Возраст</td>
+            <td>
+
+                <form th:method="PATCH" th:if="${(person.getBooks().size())>0}"
+                      th:action="@{/person/deleteBook/{name} (name=${person.getName()})}">
+                    <div th:each="planet : ${person.getBook()}">
+
+                        <input type="checkbox" name="books" th:value="${book.getName()}"
+                               th:text="${book.getName()}">
+
+
+                    </div>
+                    <input type="submit" value="удалить">
+                </form>
+
+            </td>
+            <td>
+                <form th:method="GET" th:action="@{/person/book/{name}(name=${person.getName()})}">
+                    <input type="submit" value="Пополнить список книг">
+                </form>
+            </td>
+            <td>
+                <form th:method="GET" th:action="@{/person/edit/{name}(name=${person.getName()})}">
+                    <input type="submit" value="Редактировать данные читателя">
+                </form>
+            </td>
+            <td>
+                <form th:method="DELETE" th:action="@{/person/delete/{name}(name=${person.getName()})}">
+                    <input type="submit" value="Удалить читателя">
+                </form>
+            </td>
+        </tr>
+    </div>
+</table>
+</body>
+</html>

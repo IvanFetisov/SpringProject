@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главное меню</title>
+</head>
+<body>
+<p><b>Рассмотреть список читателей и книг</b></p>
+<br/>
+<form th:method="GET" th:action="@{/person}">
+    <input type="submit" value="Изменить читателей">
+</form>
+<br/>
+<form th:method="GET" th:action="@{/book}">
+    <input type="submit" value="Редактировать книги">
+</form>
+
+</html>

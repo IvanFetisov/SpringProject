@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="65acd072-68c8-4db9-b9b6-3bbba600d1f8" name="FetisovIvanTestCaseForCFT" url="jdbc:postgresql://localhost/5432" driverClass="org.postgresql.Driver" />
+    </data-sources>
+  </component>
+</project>

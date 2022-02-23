@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Назначить читателя</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/person/newPerson}" th:object="${person}">
+    <label for="name">Имя</label>
+    <input type="text" th:field="*{name}" id="name">
+
+    <label for="age">Возраст</label>
+    <input type="number" th:field="*{age}" id="age">
+
+
+    <input type="submit" value="Назначить">
+</form>
+
+
+
+
+</body>
+</html>

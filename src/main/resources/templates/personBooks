@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактировать список планет</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/person/book/{name} (name=${person.getName()})}">
+    <div th:each="book : ${rentedBooks}">
+        <input type="checkbox" th:if="${book.getPerson()==null}" name="person" th:value="${book.getName()}" th:text="${book.getName()}">
+
+    </div>
+    <input type="submit" value="Добавить">
+</form>
+
+
+</body>
+</html>
